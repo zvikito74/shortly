@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shortly</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Shortly</h1>
+    <p class="lead">Paste a long link, get a short one, see how often it is used.</p>
+
+    <form id="form" class="card">
+      <input name="url" type="url" placeholder="https://a-very-long-address.example/with/a/path" required>
+      <div class="row">
+        <input name="alias" placeholder="Custom name (optional)" pattern="[A-Za-z0-9_\-]{3,32}"
+               title="3-32 characters: letters, digits, dash, underscore">
+        <button type="submit">Shorten</button>
+      </div>
+      <p id="error" class="error"></p>
+      <div id="result" class="result" hidden>
+        <a id="result-link" target="_blank" rel="noopener"></a>
+        <button type="button" id="copy" class="ghost">Copy</button>
+      </div>
+    </form>
+
+    <h2>Your links</h2>
+    <div class="card table-card">
+      <table>
+        <thead><tr><th>Short</th><th>Goes to</th><th class="num">Clicks</th><th></th></tr></thead>
+        <tbody id="links"></tbody>
+      </table>
+      <p id="empty" class="empty" hidden>No links yet.</p>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

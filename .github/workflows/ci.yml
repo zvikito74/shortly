@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: api
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install
+      - run: npm test
+
+  integration:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start the stack
+        run: docker compose up -d --build --wait
+
+      - name: Create a link and follow it
+        run: |
+          curl --fail --silent -X POST http://localhost:8092/api/links \
+            -H "Content-Type: application/json" \
+            -d '{"url":"https://example.com/","alias":"ci-test"}'
+          location=$(curl --silent -o /dev/null -w '%{redirect_url}' http://localhost:8092/ci-test)
+          test "$location" = "https://example.com/"
+
+      - name: Logs on failure
+        if: failure()
+        run: docker compose logs

@@ -1,0 +1,64 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #2b2118;
+  background: linear-gradient(160deg, #fff4e6, #ffe3d3);
+  line-height: 1.5;
+}
+
+main { max-width: 720px; margin: 0 auto; padding: 48px 16px; }
+
+h1 { margin: 0; font-size: 2.6rem; color: #d9480f; letter-spacing: -1px; }
+.lead { margin: 4px 0 24px; color: #7a6a5c; }
+h2 { font-size: 1.05rem; margin: 32px 0 10px; }
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 24px rgba(217, 72, 15, 0.10);
+}
+
+input, button { font: inherit; border-radius: 9px; padding: 11px 13px; }
+input { width: 100%; border: 1px solid #e6d5c7; }
+input:focus { outline: 2px solid #ffa94d; border-color: transparent; }
+
+.row { display: flex; gap: 8px; margin-top: 8px; }
+.row input { flex: 1; }
+
+button { border: 0; background: #d9480f; color: #fff; font-weight: 600; cursor: pointer; white-space: nowrap; }
+button:hover { background: #bf3f0c; }
+button.ghost { background: #fff4e6; color: #d9480f; padding: 6px 12px; }
+button.ghost:hover { background: #ffe8cc; }
+
+.error { color: #c92a2a; margin: 8px 0 0; font-size: 0.9rem; min-height: 0; }
+.error:empty { display: none; }
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #fff9f2;
+  border: 1px dashed #ffa94d;
+  border-radius: 9px;
+}
+
+.result a { color: #d9480f; font-weight: 600; word-break: break-all; }
+
+.table-card { padding: 4px 0; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px 16px; text-align: left; border-bottom: 1px solid #f3e7dc; }
+tr:last-child td { border-bottom: 0; }
+th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.6px; color: #a08b7a; }
+td a { color: #d9480f; font-weight: 600; text-decoration: none; }
+td.target { color: #7a6a5c; max-width: 280px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.empty { text-align: center; color: #a08b7a; }
+
+[hidden] { display: none !important; }

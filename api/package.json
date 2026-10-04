@@ -1,0 +1,18 @@
+{
+  "name": "shortly-api",
+  "version": "1.0.0",
+  "description": "URL shortener API backed by Redis",
+  "main": "src/server.js",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "redis": "^4.7.0"
+  }
+}
